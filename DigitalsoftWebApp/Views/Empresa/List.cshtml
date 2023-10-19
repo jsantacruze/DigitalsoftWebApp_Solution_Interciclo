@@ -1,0 +1,36 @@
+﻿@using api.digitalsoftec.net.Model;
+@model List<BusinessLayerAdminEmpresasDTOEmpresaDTO>
+@{
+    ViewData["Title"] = "Empresas";
+}
+<h3>Lista de Empresas</h3>
+<hr></hr>
+<table class="table table-hover">
+    <thead class="my-text-style">
+        <tr>
+            <th>ID</th>
+            <th>RUC</th>
+            <th>Razón Social</th>
+            <th>Parroquia</th>
+            <th>Régimen Tributario</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="my-text-style">
+        @foreach (var empresa in Model)
+        {
+            <tr>
+                <td>@empresa.empresa_id</td>
+                <td>@empresa.empresa_nro_identificacion</td>
+                <td><a href="@Url.Action("Edit", "Empresa", new { id = empresa.empresa_id })">@empresa.empresa_razon_social</a></td>
+                <td>@empresa.parroquia.parroquia_nombre</td>
+                <td>@empresa.regimen_tributario.regimen_nombre</td>
+                <td>
+                    <a href="@Url.Action("Eliminar", "Empresa", new { id = empresa.empresa_id})">
+                        <img src="~/assets/img/delete_32px.png" alt="eliminar" width="16" height="16" />
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
