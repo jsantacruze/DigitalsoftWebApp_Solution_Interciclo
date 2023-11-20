@@ -66,7 +66,10 @@ namespace api.digitalsoftec.net.Model
             this.sucursal_empresa_id = sucursalEmpresaId;
             this.puntos_acceso_list = puntosAccesoList;
         }
-        
+
+        public BusinessLayerAdminEmpresasDTOSucursalDTO()
+        { }
+
         /// <summary>
         /// Gets or Sets sucursal_id
         /// </summary>
